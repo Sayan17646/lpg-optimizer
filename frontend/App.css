@@ -1,0 +1,385 @@
+/* LPG Dashboard Styling */
+
+:root {
+  --primary: #2196F3;
+  --success: #4CAF50;
+  --warning: #FF9800;
+  --danger: #F44336;
+  --dark: #1a1a1a;
+  --light: #f5f5f5;
+  --border: #ddd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+}
+
+.app {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.app-header {
+  background: linear-gradient(135deg, var(--primary) 0%, #1565C0 100%);
+  color: white;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #45a049;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox input {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.error-banner {
+  background: var(--danger);
+  color: white;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.dashboard {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.section {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Network Map */
+.network-map {
+  position: relative;
+  background: #f9f9f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.map-svg {
+  width: 100%;
+  height: 400px;
+  border: 1px solid var(--border);
+}
+
+.plant-node {
+  fill: var(--danger);
+  cursor: pointer;
+  stroke: white;
+  stroke-width: 2;
+  transition: r 0.2s;
+}
+
+.plant-node:hover {
+  r: 20;
+  filter: brightness(1.2);
+}
+
+.hub-node {
+  fill: var(--warning);
+  cursor: pointer;
+  stroke: white;
+  stroke-width: 2;
+  transition: all 0.2s;
+}
+
+.hub-node:hover {
+  filter: brightness(1.2);
+}
+
+.city-node {
+  fill: var(--success);
+  cursor: pointer;
+  stroke: white;
+  stroke-width: 1;
+  transition: r 0.2s;
+}
+
+.city-node:hover {
+  r: 12;
+}
+
+.node-details {
+  background: white;
+  border-left: 4px solid var(--primary);
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 4px;
+}
+
+.node-details h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.node-details p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Optimization Results */
+.optimization-results {
+  background: white;
+  border-radius: 4px;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.metric span {
+  color: #666;
+  font-weight: 500;
+}
+
+.metric strong {
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.routes-table {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+}
+
+.routes-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.routes-table thead {
+  background: var(--light);
+  border-bottom: 2px solid var(--border);
+}
+
+.routes-table th {
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.routes-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.routes-table tbody tr:hover {
+  background: #f5f5f5;
+}
+
+/* Real-time Monitor */
+.realtime-monitor,
+.supply-status,
+.demand-forecast,
+.allocation-chart {
+  background: white;
+  border-radius: 4px;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.realtime-monitor h3,
+.supply-status h3,
+.demand-forecast h3,
+.allocation-chart h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.realtime-monitor p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.realtime-monitor strong {
+  color: var(--success);
+  font-size: 1.1rem;
+}
+
+.utilization-bar,
+.bar {
+  width: 100%;
+  height: 20px;
+  background: var(--light);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.bar-fill,
+.value {
+  height: 100%;
+  background: linear-gradient(90deg, var(--success), var(--warning));
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+/* Plant List */
+.plant-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.plant-item {
+  display: grid;
+  grid-template-columns: 150px 1fr 150px;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: var(--light);
+  border-radius: 4px;
+}
+
+.plant-item span {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Heatmap */
+.heatmap {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.heatmap-row {
+  display: flex;
+  gap: 2px;
+}
+
+.heatmap-cell {
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  .section {
+    padding: 1rem;
+  }
+
+  .plant-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .plant-item span:last-child {
+    text-align: right;
+  }
+}
